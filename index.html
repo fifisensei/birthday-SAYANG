@@ -135,6 +135,9 @@ function checkPassword() {
   if(input.toLowerCase() === password) {
     passwordScreen.style.display = "none";
     container.style.display = "flex";
+
+    // Start music here — mobile-safe
+    music.play().catch(()=>console.log("Tap to start music"));
   } else {
     alert("Wrong password! Try again ❤️");
   }
@@ -165,7 +168,6 @@ let index = 0;
 // Handle taps
 function nextMessage(event) {
   createHeart(event.clientX, event.clientY);
-  if(index === 0) music.play();
   if(index < messages.length) {
     message.style.opacity = 0;
     setTimeout(()=> {
